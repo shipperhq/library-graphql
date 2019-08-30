@@ -12,6 +12,7 @@
 return <<<'graphql'
 query CreateListing($listingInfo: ListingInfoInput) {
   createListing(listingInfo: $listingInfo) {
+    listingId
     errors {
       errorCode
       internalErrorMessage

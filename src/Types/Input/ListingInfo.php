@@ -28,7 +28,7 @@ class ListingInfo
     private $sender;
 
     /**
-     * @var  RMSDestination
+     * @var  Address
      */
     private $recipient;
 
@@ -46,11 +46,11 @@ class ListingInfo
      * ListingRequest constructor.
      * @param Carrier $carrier
      * @param Sender $sender
-     * @param RMSDestination $recipient
+     * @param Address $recipient
      * @param Listing[] $listings
      * @param RMSSiteDetails $siteDetails
      */
-    public function __construct(Carrier $carrier, Sender $sender, RMSDestination $recipient, array $listings, RMSSiteDetails $siteDetails)
+    public function __construct(Carrier $carrier, Sender $sender, Address $recipient, array $listings, RMSSiteDetails $siteDetails)
     {
         $this->carrier = $carrier;
         $this->sender = $sender;
@@ -92,7 +92,7 @@ class ListingInfo
     }
 
     /**
-     * @return RMSDestination
+     * @return Address
      */
     public function getRecipient()
     {
@@ -100,7 +100,7 @@ class ListingInfo
     }
 
     /**
-     * @param RMSDestination $recipient
+     * @param Address $recipient
      */
     public function setRecipient($recipient)
     {

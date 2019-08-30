@@ -56,6 +56,11 @@ class Piece
     private $height;
 
     /**
+     * @var String
+     */
+    private $image;
+
+    /**
      * Piece constructor.
      * @param int $id
      * @param string $referenceId
@@ -186,6 +191,20 @@ class Piece
     public function setHeight($height)
     {
         $this->height = $height;
+    }
+
+    /**
+     * @return String
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }/**
+     * @param String $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 
 

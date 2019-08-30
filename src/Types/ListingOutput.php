@@ -27,14 +27,20 @@ class ListingOutput
     private $errors;
 
     /**
+     * @var string
+     */
+    private $listingId;
+
+    /**
      * ListingOutput constructor.
      * @param ResponseSummary $responseSummary
      * @param RMSError[] $errors
      */
-    public function __construct($responseSummary, array $errors)
+    public function __construct($responseSummary, array $errors, $listingId)
     {
         $this->setResponseSummary($responseSummary)
-            ->setErrors($errors);
+            ->setErrors($errors)
+            ->setListingId($listingId);
     }
 
     /**
@@ -71,5 +77,21 @@ class ListingOutput
     {
         $this->errors = $errors;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getListingId()
+    {
+        return $this->listingId;
+    }
+
+    /**
+     * @param string $listingId
+     */
+    public function setListingId($listingId)
+    {
+        $this->listingId = $listingId;
     }
 }

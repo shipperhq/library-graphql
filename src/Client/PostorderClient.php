@@ -38,6 +38,22 @@ class PostorderClient extends AbstractClient
 
         $serializedRequest = Serializer::serialize($request, JSON_PRETTY_PRINT);
 
-        return $this->sendRequest($serializedRequest, CreateListing::class, $endpoint, $timeout, $headers);
+        $response = $this->sendRequest($serializedRequest, CreateListing::class, $endpoint, $timeout, $headers);
+
+        $response = $this->filterImageFromDebuggingData($response);
+
+        return $response;
+    }
+
+    /**
+     * @param array $response
+     * @return array
+     */
+    private function filterImageFromDebuggingData($response) {
+        $debugRequestString = $response['debug']['request'];
+
+        $response['debug']['request'] = preg_replace("/(\"image\"\s*:\s*\")(.{1,10})(.*?)\"/m", "$1$2...\"", $debugRequestString);
+
+        return $response;
     }
 }

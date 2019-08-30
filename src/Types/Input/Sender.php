@@ -22,6 +22,7 @@ class Sender
      */
     private $originName;
 
+
     /**
      * Sender constructor.
      * @param string $originName
@@ -46,6 +47,5 @@ class Sender
     {
         $this->originName = $originName;
     }
-
 
 }
