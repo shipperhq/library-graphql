@@ -23,14 +23,16 @@ abstract class AbstractClient
     }
 
     /**
-     * @param $serializedRequest
-     * @param $responseClassName
-     * @param $endpoint
-     * @param $timeout
+     * @param                      $serializedRequest
+     * @param                      $responseClassName
+     * @param                      $endpoint
+     * @param                      $timeout
      * @param null|AbstractHeaders $headers
+     * @param bool                 $useZendClient Set to false when using with WooCommerce
+     *
      * @return array
      */
-    protected function sendRequest($serializedRequest, $responseClassName, $endpoint, $timeout, $headers = null): array
+    protected function sendRequest($serializedRequest, $responseClassName, $endpoint, $timeout, $headers = null, $useZendClient = true): array
     {
         $debugData = [
             "settings" => compact('endpoint', 'timeout'),
@@ -39,22 +41,35 @@ abstract class AbstractClient
         ];
 
         $responseBody = '{}';
+        $args = [
+            'maxredirects' => 0,
+            'timeout'      => $timeout,
+            'useragent'    => "ShipperHQ GraphQL Library",
+        ];
+
         try {
-            $client = new \Zend_Http_Client(
-                $endpoint,
-                [
-                    'maxredirects' => 0,
-                    'timeout' => $timeout,
-                    'useragent' => "ShipperHQ GraphQL Library"
-                ]
-            );
-            if ($headers) {
-                $client->setHeaders($headers->toArray());
-            }
-            $client->setRawData($serializedRequest, 'application/json');
-            $response = $client->request(\Zend_Http_Client::POST);
-            if ($response !== null) {
-                $responseBody = $response->getBody() ?: "{}";
+            if ($useZendClient) {
+                $client = new \Zend_Http_Client(
+                    $endpoint,
+                    $args
+                );
+                if ($headers) {
+                    $client->setHeaders($headers->toArray());
+                }
+                $client->setRawData($serializedRequest, 'application/json');
+                $response = $client->request(\Zend_Http_Client::POST);
+                if ($response !== null) {
+                    $responseBody = $response->getBody() ?: "{}";
+                }
+            } else {
+                $args['headers'] = $headers->toArray();
+                $args['headers']['Content-Type'] = 'application/json';
+                $args['body'] = $serializedRequest;
+
+                $response = wp_remote_post($endpoint, $args);
+                if ($response !== null) {
+                    $responseBody = wp_remote_retrieve_body($response) ?: "{}";
+                }
             }
 
             $debugData['response'] = json_encode(json_decode($responseBody), JSON_PRETTY_PRINT);

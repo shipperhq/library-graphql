@@ -20,14 +20,16 @@ use ShipperHQ\GraphQL\Types\Input\ListingInfo;
 class PostorderClient extends AbstractClient
 {
     /**
-     * @param ListingInfo $listingInfo
-     * @param $endpoint
-     * @param $timeout
+     * @param ListingInfo   $listingInfo
+     * @param               $endpoint
+     * @param               $timeout
      * @param SecureHeaders $headers
+     * @param bool          $useZendClient
+     *
      * @return array
      * @throws \ReflectionException
      */
-    public function createListing($listingInfo, $endpoint, $timeout, SecureHeaders $headers)
+    public function createListing($listingInfo, $endpoint, $timeout, SecureHeaders $headers, $useZendClient = true)
     {
         $variables = compact('listingInfo');
 
@@ -38,7 +40,7 @@ class PostorderClient extends AbstractClient
 
         $serializedRequest = Serializer::serialize($request, JSON_PRETTY_PRINT);
 
-        $response = $this->sendRequest($serializedRequest, CreateListing::class, $endpoint, $timeout, $headers);
+        $response = $this->sendRequest($serializedRequest, CreateListing::class, $endpoint, $timeout, $headers, $useZendClient);
 
         $response = $this->filterImageFromDebuggingData($response);
 
