@@ -74,10 +74,11 @@ class GraphQLClient extends AbstractClient
      * @return array
      * @throws \ReflectionException
      */
-    public function placeOrder($orderNumber, $totalCharges, $carrierCode, $methodCode, $endpoint, $timeout, SecureHeaders $headers)
+    public function placeOrder($orderNumber, $totalCharges, $carrierCode, $methodCode, $recipient, $endpoint, $timeout, SecureHeaders $headers)
     {
         $variables = compact('orderNumber', 'totalCharges', 'carrierCode', 'methodCode');
         $variables['totalCharges'] = (float) $variables['totalCharges'];
+        $variables['recipient'] = $recipient;
 
         $request = new Request(
             self::getQueryStr('placeOrder'),

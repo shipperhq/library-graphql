@@ -10,8 +10,8 @@
  */
 
 return <<<'graphql'
-mutation PlaceOrder($orderNumber: String!, $totalCharges: Float!, $carrierCode: String!, $methodCode: String!) {
-  placeOrder(orderNumber: $orderNumber, totalCharges: $totalCharges, carrierCode: $carrierCode, methodCode: $methodCode)
+mutation PlaceOrder($orderNumber: String!, $totalCharges: Float!, $carrierCode: String!, $methodCode: String!,$recipient: AddressInput!) {
+  placeOrder(orderNumber: $orderNumber, totalCharges: $totalCharges, carrierCode: $carrierCode, methodCode: $methodCode, recipient: $recipient)
 }
 graphql;
 
