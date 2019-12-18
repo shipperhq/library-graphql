@@ -25,7 +25,8 @@ class RMSItem
         "CONFIGURABLE",
         "SIMPLE",
         "GIFTCARD",
-        "DOWNLOADABLE"
+        "DOWNLOADABLE",
+        "GROUPED"
     ];
 
     /**
