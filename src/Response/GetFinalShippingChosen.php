@@ -11,17 +11,12 @@
 
 namespace ShipperHQ\GraphQL\Response;
 
+use ShipperHQ\GraphQL\Response\Data\GetFinalShippingChosenData;
 
-use ShipperHQ\GraphQL\Response\Data\PlaceOrderData;
-
-/**
- * Class PlaceOrder
- * @package ShipperHQ\GraphQL\Response
- */
-class PlaceOrder implements ResponseInterface
+class GetFinalShippingChosen implements ResponseInterface
 {
     /**
-     * @var \ShipperHQ\GraphQL\Response\Data\PlaceOrderData
+     * @var GetFinalShippingChosenData
      */
     private $data;
 
@@ -32,17 +27,17 @@ class PlaceOrder implements ResponseInterface
 
     /**
      * AbstractResponse constructor.
-     * @param \ShipperHQ\GraphQL\Response\Data\PlaceOrderData $data
+     * @param GetFinalShippingChosenData $data
      * @param Error[] $errors
      */
-    public function __construct(PlaceOrderData $data, array $errors)
+    public function __construct(GetFinalShippingChosenData $data, array $errors)
     {
         $this->data = $data;
         $this->errors = $errors;
     }
 
     /**
-     * @return \ShipperHQ\GraphQL\Response\Data\PlaceOrderData
+     * @return GetFinalShippingChosenData
      */
     public function getData()
     {
@@ -50,10 +45,10 @@ class PlaceOrder implements ResponseInterface
     }
 
     /**
-     * @param \ShipperHQ\GraphQL\Response\Data\PlaceOrderData|null $data
-     * @return PlaceOrder
+     * @param GetFinalShippingChosenData $data
+     * @return GetFinalShippingChosen
      */
-    public function setData(?PlaceOrderData $data)
+    public function setData(GetFinalShippingChosenData $data)
     {
         $this->data = $data;
         return $this;
@@ -69,7 +64,7 @@ class PlaceOrder implements ResponseInterface
 
     /**
      * @param Error[]|null $errors
-     * @return PlaceOrder
+     * @return GetFinalShippingChosen
      */
     public function setErrors(array $errors)
     {

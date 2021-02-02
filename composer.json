@@ -2,7 +2,7 @@
   "name": "shipperhq/library-graphql",
   "description": "ShipperHQ GraphQL Library",
   "type": "magento2-library",
-  "version": "20.0.5",
+  "version": "20.1.0",
   "license": [
     "OSL-3.0",
     "AFL-3.0"
@@ -18,7 +18,7 @@
     }
   ],
   "require": {
-    "php": "~7.0",
+    "php": "~7.1",
     "zendframework/zend-http": "~2.0",
     "netresearch/jsonmapper": "~1.4"
   },

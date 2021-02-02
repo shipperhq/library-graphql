@@ -15,6 +15,7 @@ use ShipperHQ\GraphQL\Helpers\Serializer;
 use ShipperHQ\GraphQL\Request\SecureHeaders;
 use ShipperHQ\GraphQL\Request\Request;
 use ShipperHQ\GraphQL\Response\CreateSecretToken;
+use ShipperHQ\GraphQL\Response\GetFinalShippingChosen;
 use ShipperHQ\GraphQL\Response\PlaceOrder;
 use ShipperHQ\GraphQL\Response\RetrieveShippingQuote;
 use ShipperHQ\GraphQL\Types\Input\RMSRatingInfo;
@@ -61,6 +62,26 @@ class GraphQLClient extends AbstractClient
         $serializedRequest = Serializer::serialize($request, JSON_PRETTY_PRINT);
 
         return $this->sendRequest($serializedRequest, RetrieveShippingQuote::class, $endpoint, $timeout, $headers);
+    }
+
+    /**
+     * @param RMSRatingInfo $ratingInfo
+     * @param $endpoint
+     * @param $timeout
+     * @param SecureHeaders $headers
+     * @return array
+     * @throws \ReflectionException
+     */
+    public function getFinalShippingChosen($endpoint, $timeout, SecureHeaders $headers)
+    {
+        $request = new Request(
+            self::getQueryStr('getFinalShippingChosen'),
+            []
+        );
+
+        $serializedRequest = Serializer::serialize($request, JSON_PRETTY_PRINT);
+
+        return $this->sendRequest($serializedRequest, GetFinalShippingChosen::class, $endpoint, $timeout, $headers);
     }
 
     /**

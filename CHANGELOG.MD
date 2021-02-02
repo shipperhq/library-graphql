@@ -24,3 +24,7 @@ TGR-66 add recipient to placeOrder request
 SHQ18-3003 support for GROUPED product types
 
 
+## 20.1.0 (2021-02-02)
+MNB-669 fixes errors and adds getFinalShippingChosen query
+
+
