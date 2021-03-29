@@ -28,3 +28,7 @@ SHQ18-3003 support for GROUPED product types
 MNB-669 fixes errors and adds getFinalShippingChosen query
 
 
+## 20.2.0 (2021-03-29)
+RIV-443 add placeOrder query
+
+
