@@ -90,6 +90,14 @@ class RMSCart
     }
 
     /**
+     * @return bool
+     */
+    public function getFreeShipping()
+    {
+        return $this->freeShipping;
+    }
+
+    /**
      * @param bool $freeShipping
      * @return RMSCart
      */

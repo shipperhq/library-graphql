@@ -32,3 +32,11 @@ MNB-669 fixes errors and adds getFinalShippingChosen query
 RIV-443 add placeOrder query
 
 
+## 20.3.0 (2022-02-02)
+RIV-443 update get methods for serializer
+
+
+## 20.3.0 (2022-02-03)
+RIV-898 Adds missing coupon code field
+
+

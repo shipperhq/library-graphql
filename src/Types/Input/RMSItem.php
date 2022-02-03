@@ -440,6 +440,14 @@ class RMSItem
     }
 
     /**
+     * @return bool
+     */
+    public function getFreeShipping()
+    {
+        return $this->freeShipping;
+    }
+
+    /**
      * @param bool $freeShipping
      * @return RMSItem
      */
