@@ -32,7 +32,7 @@ class LoggingHelper
     private function sanitizeAuthCode($debugResult)
     {
         if (isset($debugResult['request'])) {
-            $debugResult['request'] = json_decode($debugResult['request'], true);
+            $debugResult['request'] = json_decode((string) $debugResult['request'], true);
             if (isset($debugResult['request']['variables']['auth_code'])) {
                 $debugResult['request']['variables']['auth_code'] = 'SANITIZED';
             }
@@ -47,7 +47,7 @@ class LoggingHelper
     private function sanitizeAuthToken($debugResult)
     {
         if (isset($debugResult['response'])) {
-            $debugResult['response'] = json_decode($debugResult['response'], true);
+            $debugResult['response'] = json_decode((string) $debugResult['response'], true);
             if (isset($debugResult['response']['data']['createSecretToken']['token'])) {
                 $debugResult['response']['data']['createSecretToken']['token'] = 'SANITIZED';
             }

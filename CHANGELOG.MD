@@ -40,3 +40,7 @@ RIV-443 update get methods for serializer
 RIV-898 Adds missing coupon code field
 
 
+## 20.4.0 (2022-05-13)
+MND-2430 M2.4.4 compatibility
+
+

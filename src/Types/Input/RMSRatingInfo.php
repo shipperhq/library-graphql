@@ -146,7 +146,7 @@ class RMSRatingInfo
      */
     public function setCartType($cartType)
     {
-        $cartType = strtoupper($cartType);
+        $cartType = strtoupper((string) $cartType);
 
         if (in_array($cartType, self::AVAILABLE_CART_TYPES)) {
             $this->cartType = $cartType;

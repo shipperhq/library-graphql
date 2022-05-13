@@ -1,36 +1,38 @@
 {
-  "name": "shipperhq/library-graphql",
-  "description": "ShipperHQ GraphQL Library",
-  "type": "magento2-library",
-  "version": "20.3.0",
-  "license": [
-    "OSL-3.0",
-    "AFL-3.0"
-  ],
-  "authors": [
-    {
-      "name": "ShipperHQ",
-      "email": "sales@shipperhq.com",
-      "homepage": "http://www.Shipperhq.com"
-    },
-    {
-      "name": "Zowta LLC"
-    }
-  ],
-  "require": {
-    "php": "~7.1",
-    "zendframework/zend-http": "~2.0",
-    "netresearch/jsonmapper": "~1.4"
-  },
-  "support": {
-    "documentation": "http://docs.shipperhq.com"
-  },
-  "autoload": {
-    "files": [
-      "src/registration.php"
+    "name": "shipperhq/library-graphql",
+    "description": "ShipperHQ GraphQL Library",
+    "type": "magento2-library",
+    "version": "20.4.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
     ],
-    "psr-4": {
-      "ShipperHQ\\GraphQL\\": "src/"
+    "authors": [
+        {
+            "name": "ShipperHQ",
+            "email": "sales@shipperhq.com",
+            "homepage": "http://www.Shipperhq.com"
+        },
+        {
+            "name": "Zowta LLC"
+        }
+    ],
+    "require": {
+        "php": "~7.1 || ~8.1",
+        "laminas/laminas-http": "~2.0",
+        "netresearch/jsonmapper": "^4.0",
+        "laminas/laminas-dependency-plugin": "^2.1",
+        "ext-json": "*"
+    },
+    "support": {
+        "documentation": "http://docs.shipperhq.com"
+    },
+    "autoload": {
+        "files": [
+            "src/registration.php"
+        ],
+        "psr-4": {
+            "ShipperHQ\\GraphQL\\": "src/"
+        }
     }
-  }
 }

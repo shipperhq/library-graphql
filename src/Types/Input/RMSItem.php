@@ -275,7 +275,7 @@ class RMSItem
      */
     public function setType($type)
     {
-        $type = strtoupper($type);
+        $type = strtoupper((string) $type);
 
         if (in_array($type, self::AVAILABLE_ITEM_TYPES)) {
             $this->type = $type;

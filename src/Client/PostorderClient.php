@@ -52,7 +52,7 @@ class PostorderClient extends AbstractClient
      * @return array
      */
     private function filterImageFromDebuggingData($response) {
-        $debugRequestString = $response['debug']['request'];
+        $debugRequestString = (string) $response['debug']['request'];
 
         $response['debug']['request'] = preg_replace("/(\"image\"\s*:\s*\")(.{1,10})(.*?)\"/m", "$1$2...\"", $debugRequestString);
 
