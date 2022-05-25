@@ -44,3 +44,7 @@ RIV-898 Adds missing coupon code field
 MND-2430 M2.4.4 compatibility
 
 
+## 20.4.1 (2022-05-25)
+MNB-2542 Change version requirements for laminas-dependency-plugin
+
+
