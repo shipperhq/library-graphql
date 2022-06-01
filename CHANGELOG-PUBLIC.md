@@ -48,3 +48,7 @@ MND-2430 M2.4.4 compatibility
 MNB-2542 Change version requirements for laminas-dependency-plugin
 
 
+## 20.4.2 (2022-06-01)
+MNB-2576 Rolled back MNB-2405
+
+

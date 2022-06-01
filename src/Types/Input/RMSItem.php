@@ -40,11 +40,6 @@ class RMSItem
     private $sku;
 
     /**
-     * @var string
-     */
-    private $name;
-
-    /**
      * @var float
      */
     private $storePrice;
@@ -133,7 +128,6 @@ class RMSItem
      * RMSItem constructor.
      * @param string $itemId
      * @param string $sku
-     * @param string $name
      * @param float $storePrice
      * @param float $weight
      * @param int $qty
@@ -153,11 +147,10 @@ class RMSItem
      * @param RMSItem[] $items
      * @throws SerializerException
      */
-    public function __construct($itemId, $sku, $name, $storePrice, $weight, $qty, $type, $taxInclStorePrice, $freeShipping, $fixedPrice, $fixedWeight, $basePrice = null, $taxInclBasePrice = null, $discountPercent = null, $discountedBasePrice = null, $discountedStorePrice = null, $discountedTaxInclBasePrice = null, $discountedTaxInclStorePrice = null, array $attributes = null, array $items = null)
+    public function __construct($itemId, $sku, $storePrice, $weight, $qty, $type, $taxInclStorePrice, $freeShipping, $fixedPrice, $fixedWeight, $basePrice = null, $taxInclBasePrice = null, $discountPercent = null, $discountedBasePrice = null, $discountedStorePrice = null, $discountedTaxInclBasePrice = null, $discountedTaxInclStorePrice = null, array $attributes = null, array $items = null)
     {
         $this->setItemId($itemId)
             ->setSku($sku)
-            ->setName($name)
             ->setStorePrice($storePrice)
             ->setWeight($weight)
             ->setQty($qty)
@@ -210,24 +203,6 @@ class RMSItem
     public function setSku($sku)
     {
         $this->sku = $sku;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     * @return RMSItem
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
         return $this;
     }
 
@@ -300,7 +275,7 @@ class RMSItem
      */
     public function setType($type)
     {
-        $type = strtoupper((string) $type);
+        $type = strtoupper($type);
 
         if (in_array($type, self::AVAILABLE_ITEM_TYPES)) {
             $this->type = $type;
