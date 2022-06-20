@@ -52,3 +52,7 @@ MNB-2542 Change version requirements for laminas-dependency-plugin
 MNB-2576 Rolled back MNB-2405
 
 
+## 20.4.3 (2022-06-20)
+MNB-2405 added RMSItem.name field
+
+
