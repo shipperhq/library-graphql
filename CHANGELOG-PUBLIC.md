@@ -56,3 +56,7 @@ MNB-2576 Rolled back MNB-2405
 MNB-2405 added RMSItem.name field
 
 
+## 20.4.4 (2023-03-22)
+SHQ23-365 Move from Zend_Http to Laminas_Http
+
+

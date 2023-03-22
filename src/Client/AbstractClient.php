@@ -11,6 +11,8 @@
 
 namespace ShipperHQ\GraphQL\Client;
 
+use Laminas\Http\Client;
+use Laminas\Http\Request;
 use ShipperHQ\GraphQL\Helpers\Serializer;
 use ShipperHQ\GraphQL\Request\AbstractHeaders;
 
@@ -49,15 +51,13 @@ abstract class AbstractClient
 
         try {
             if ($useZendClient) {
-                $client = new \Zend_Http_Client(
-                    $endpoint,
-                    $args
-                );
+                $client = new Client($endpoint, $args);
                 if ($headers) {
                     $client->setHeaders($headers->toArray());
                 }
-                $client->setRawData($serializedRequest, 'application/json');
-                $response = $client->request(\Zend_Http_Client::POST);
+                $client->setRawBody($serializedRequest);
+                $client->setEncType('application/json');
+                $response = $client->setMethod(Request::METHOD_POST)->send();
                 if ($response !== null) {
                     $responseBody = $response->getBody() ?: "{}";
                 }
