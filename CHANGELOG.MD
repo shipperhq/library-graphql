@@ -60,3 +60,7 @@ MNB-2405 added RMSItem.name field
 SHQ23-365 Move from Zend_Http to Laminas_Http
 
 
+## 20.4.5 (2023-11-29)
+SHQ23-1527 Remove PHP and laminas dependency requirements
+
+

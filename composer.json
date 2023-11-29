@@ -2,7 +2,7 @@
     "name": "shipperhq/library-graphql",
     "description": "ShipperHQ GraphQL Library",
     "type": "magento2-library",
-    "version": "20.4.4",
+    "version": "20.4.5",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
@@ -18,10 +18,8 @@
         }
     ],
     "require": {
-        "php": "~7.1 || ~8.1",
         "laminas/laminas-http": "~2.0",
         "netresearch/jsonmapper": "^4.0",
-        "laminas/laminas-dependency-plugin": "^1.0 | ^2.0",
         "ext-json": "*"
     },
     "support": {
