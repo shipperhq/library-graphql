@@ -37,5 +37,3 @@ query retrieveShippingQuote($ratingInfo: RMSRatingInfo!) {
   }
 }
 graphql;
-
-?>

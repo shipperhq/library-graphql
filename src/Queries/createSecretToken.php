@@ -16,5 +16,3 @@ mutation CreateSecretToken($api_key: String!, $auth_code: String!){
   }
 }
 graphql;
-
-?>

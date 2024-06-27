@@ -64,3 +64,7 @@ SHQ23-365 Move from Zend_Http to Laminas_Http
 SHQ23-1527 Remove PHP and laminas dependency requirements
 
 
+## 20.4.6 (2024-06-27)
+SHQ23-1281 Fix security linter warnings
+
+

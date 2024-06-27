@@ -14,5 +14,3 @@ mutation PlaceOrder($orderNumber: String!, $totalCharges: Float!, $carrierCode: 
   placeOrder(orderNumber: $orderNumber, totalCharges: $totalCharges, carrierCode: $carrierCode, methodCode: $methodCode, recipient: $recipient)
 }
 graphql;
-
-?>

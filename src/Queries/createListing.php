@@ -27,5 +27,3 @@ query CreateListing($listingInfo: ListingInfoInput) {
   }
 }
 graphql;
-
-?>
