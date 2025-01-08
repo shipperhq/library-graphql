@@ -72,3 +72,7 @@ SHQ23-1281 Fix security linter warnings
 SHQ23-4085 Update readme
 
 
+## 20.4.8 (2025-01-08)
+SHQ23-4029 Add orderDate to placeOrder mutation
+
+
