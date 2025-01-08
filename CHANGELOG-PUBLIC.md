@@ -68,3 +68,7 @@ SHQ23-1527 Remove PHP and laminas dependency requirements
 SHQ23-1281 Fix security linter warnings
 
 
+## 20.4.7 (2025-01-08)
+SHQ23-4085 Update readme
+
+

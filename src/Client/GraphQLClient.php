@@ -89,17 +89,29 @@ class GraphQLClient extends AbstractClient
      * @param $totalCharges
      * @param $carrierCode
      * @param $methodCode
+     * @param $orderDate
+     * @param $recipient
      * @param $endpoint
      * @param $timeout
      * @param SecureHeaders $headers
+     *
      * @return array
      * @throws \ReflectionException
      */
-    public function placeOrder($orderNumber, $totalCharges, $carrierCode, $methodCode, $recipient, $endpoint, $timeout, SecureHeaders $headers)
+    public function placeOrder($orderNumber, $totalCharges, $carrierCode, $methodCode, $orderDate, $recipient,
+        $endpoint, $timeout, SecureHeaders $headers)
     {
         $variables = compact('orderNumber', 'totalCharges', 'carrierCode', 'methodCode');
         $variables['totalCharges'] = (float) $variables['totalCharges'];
         $variables['recipient'] = $recipient;
+
+        try {
+            $orderDateTime = new \DateTime($orderDate);
+            $iso8601 = $orderDateTime->format(\DateTimeInterface::ATOM);
+            $variables['orderDate'] = $iso8601;
+        } catch (\Exception $e) {
+            // Don't do anything. It's a optional field
+        }
 
         $request = new Request(
             self::getQueryStr('placeOrder'),
