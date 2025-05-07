@@ -138,23 +138,43 @@ class RMSItem
      * @param float $weight
      * @param int $qty
      * @param string $type
+     * @param float $taxInclStorePrice
+     * @param bool $freeShipping
+     * @param bool $fixedPrice
+     * @param bool $fixedWeight
      * @param float $basePrice
      * @param float $taxInclBasePrice
-     * @param float $taxInclStorePrice
      * @param float $discountPercent
      * @param float $discountedBasePrice
      * @param float $discountedStorePrice
      * @param float $discountedTaxInclBasePrice
      * @param float $discountedTaxInclStorePrice
-     * @param bool $freeShipping
-     * @param bool $fixedPrice
-     * @param bool $fixedWeight
      * @param RMSAttribute[] $attributes
      * @param RMSItem[] $items
      * @throws SerializerException
      */
-    public function __construct($itemId, $sku, $name, $storePrice, $weight, $qty, $type, $taxInclStorePrice, $freeShipping, $fixedPrice, $fixedWeight, $basePrice = null, $taxInclBasePrice = null, $discountPercent = null, $discountedBasePrice = null, $discountedStorePrice = null, $discountedTaxInclBasePrice = null, $discountedTaxInclStorePrice = null, array $attributes = null, array $items = null)
-    {
+    public function __construct(
+        $itemId, 
+        $sku, 
+        $name, 
+        $storePrice, 
+        $weight, 
+        $qty, 
+        $type, 
+        $taxInclStorePrice, 
+        $freeShipping, 
+        $fixedPrice, 
+        $fixedWeight, 
+        ?float $basePrice = null, 
+        ?float $taxInclBasePrice = null, 
+        ?float $discountPercent = null, 
+        ?float $discountedBasePrice = null, 
+        ?float $discountedStorePrice = null, 
+        ?float $discountedTaxInclBasePrice = null, 
+        ?float $discountedTaxInclStorePrice = null, 
+        ?array $attributes = null, 
+        ?array $items = null
+    ) {
         $this->setItemId($itemId)
             ->setSku($sku)
             ->setName($name)

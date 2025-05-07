@@ -16,7 +16,8 @@ mutation PlaceOrder(
   $carrierCode: String!,
   $methodCode: String!,
   $recipient: AddressInput!,
-  $orderDate: DateTime
+  $orderDate: DateTime,
+  $cartPrice: Float
 ) {
   placeOrder(
     orderNumber: $orderNumber,
@@ -24,7 +25,8 @@ mutation PlaceOrder(
     carrierCode: $carrierCode,
     methodCode: $methodCode,
     recipient: $recipient,
-    orderDate: $orderDate
+    orderDate: $orderDate,
+    cartPrice: $cartPrice
   )
 }
 graphql;

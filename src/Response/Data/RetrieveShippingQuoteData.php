@@ -23,9 +23,9 @@ class RetrieveShippingQuoteData implements ResponseDataInterface
 
     /**
      * RetrieveShippingQuoteData constructor.
-     * @param \ShipperHQ\GraphQL\Types\BasicShippingQuote $retrieveShippingQuote
+     * @param \ShipperHQ\GraphQL\Types\BasicShippingQuote|null $retrieveShippingQuote
      */
-    public function __construct(BasicShippingQuote $retrieveShippingQuote = null)
+    public function __construct(?BasicShippingQuote $retrieveShippingQuote = null)
     {
         $this->retrieveShippingQuote = $retrieveShippingQuote;
     }
@@ -39,10 +39,10 @@ class RetrieveShippingQuoteData implements ResponseDataInterface
     }
 
     /**
-     * @param \ShipperHQ\GraphQL\Types\BasicShippingQuote $retrieveShippingQuote
+     * @param \ShipperHQ\GraphQL\Types\BasicShippingQuote|null $retrieveShippingQuote
      * @return RetrieveShippingQuoteData
      */
-    public function setRetrieveShippingQuote(BasicShippingQuote $retrieveShippingQuote = null)
+    public function setRetrieveShippingQuote(?BasicShippingQuote $retrieveShippingQuote = null)
     {
         $this->retrieveShippingQuote = $retrieveShippingQuote;
         return $this;

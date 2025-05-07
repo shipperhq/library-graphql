@@ -63,10 +63,11 @@ class RMSRatingInfo
      * @param RMSDestination $destination
      * @param RMSCustomer $customer
      * @param string $cartType
-     * @param RMSRequestedOptions $requestedOptions
+     * @param RMSSiteDetails $siteDetails
+     * @param RMSRequestedOptions|null $requestedOptions
      * @throws SerializerException
      */
-    public function __construct(RMSCart $cart, RMSDestination $destination, RMSCustomer $customer, $cartType, RMSSiteDetails $siteDetails, RMSRequestedOptions $requestedOptions = null)
+    public function __construct(RMSCart $cart, RMSDestination $destination, RMSCustomer $customer, $cartType, RMSSiteDetails $siteDetails, ?RMSRequestedOptions $requestedOptions = null)
     {
         $this->setCart($cart)
             ->setDestination($destination)

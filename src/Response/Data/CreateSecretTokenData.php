@@ -24,7 +24,7 @@ class CreateSecretTokenData implements ResponseDataInterface
      * CreateSecretTokenData constructor.
      * @param AuthorizationToken|null $authorizationToken
      */
-    public function __construct(AuthorizationToken $authorizationToken = null)
+    public function __construct(?AuthorizationToken $authorizationToken = null)
     {
         $this->createSecretToken = $authorizationToken;
     }
@@ -41,7 +41,7 @@ class CreateSecretTokenData implements ResponseDataInterface
      * @param AuthorizationToken|null $createSecretToken
      * @return CreateSecretTokenData
      */
-    public function setCreateSecretToken(AuthorizationToken $createSecretToken = null)
+    public function setCreateSecretToken(?AuthorizationToken $createSecretToken = null)
     {
         $this->createSecretToken = $createSecretToken;
         return $this;
