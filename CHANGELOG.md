@@ -80,3 +80,7 @@ SHQ23-4029 Add orderDate to placeOrder mutation
 SHQ23-4872 PHP8.4 and Magento 2.4.8 compatibility
 
 
+## 20.5.1 (2025-06-26)
+SHQ23-5319 Add return types and fix copyright and ensure php 8.4 compatibility
+
+

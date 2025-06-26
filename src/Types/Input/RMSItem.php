@@ -1,9 +1,9 @@
 <?php
 /**
- * Shipper HQ
+ * ShipperHQ
  *
  * @category ShipperHQ
- * @package ShipperHQ_GraphQL
+ * @package ShipperHQ\GraphQL
  * @copyright Copyright (c) 2019 Zowta LTD and Zowta LLC (http://www.ShipperHQ.com)
  * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @author ShipperHQ Team sales@shipperhq.com
@@ -154,25 +154,25 @@ class RMSItem
      * @throws SerializerException
      */
     public function __construct(
-        $itemId, 
-        $sku, 
-        $name, 
-        $storePrice, 
-        $weight, 
-        $qty, 
-        $type, 
-        $taxInclStorePrice, 
-        $freeShipping, 
-        $fixedPrice, 
-        $fixedWeight, 
-        ?float $basePrice = null, 
-        ?float $taxInclBasePrice = null, 
-        ?float $discountPercent = null, 
-        ?float $discountedBasePrice = null, 
-        ?float $discountedStorePrice = null, 
-        ?float $discountedTaxInclBasePrice = null, 
-        ?float $discountedTaxInclStorePrice = null, 
-        ?array $attributes = null, 
+        $itemId,
+        $sku,
+        $name,
+        $storePrice,
+        $weight,
+        $qty,
+        $type,
+        $taxInclStorePrice,
+        $freeShipping,
+        $fixedPrice,
+        $fixedWeight,
+        ?float $basePrice = null,
+        ?float $taxInclBasePrice = null,
+        ?float $discountPercent = null,
+        ?float $discountedBasePrice = null,
+        ?float $discountedStorePrice = null,
+        ?float $discountedTaxInclBasePrice = null,
+        ?float $discountedTaxInclStorePrice = null,
+        ?array $attributes = null,
         ?array $items = null
     ) {
         $this->setItemId($itemId)
