@@ -12,8 +12,8 @@
 namespace ShipperHQ\GraphQL\Client;
 
 use ShipperHQ\GraphQL\Helpers\Serializer;
-use ShipperHQ\GraphQL\Request\SecureHeaders;
 use ShipperHQ\GraphQL\Request\Request;
+use ShipperHQ\GraphQL\Request\SecureHeaders;
 use ShipperHQ\GraphQL\Response\CreateSecretToken;
 use ShipperHQ\GraphQL\Response\GetFinalShippingChosen;
 use ShipperHQ\GraphQL\Response\PlaceOrder;
@@ -98,9 +98,17 @@ class GraphQLClient extends AbstractClient
      * @return array
      * @throws \ReflectionException
      */
-    public function placeOrder($orderNumber, $totalCharges, $carrierCode, $methodCode, $orderDate, $recipient,
-        $endpoint, $timeout, SecureHeaders $headers)
-    {
+    public function placeOrder(
+        $orderNumber,
+        $totalCharges,
+        $carrierCode,
+        $methodCode,
+        $orderDate,
+        $recipient,
+        $endpoint,
+        $timeout,
+        SecureHeaders $headers
+    ) {
         $variables = compact('orderNumber', 'totalCharges', 'carrierCode', 'methodCode');
         $variables['totalCharges'] = (float) $variables['totalCharges'];
         $variables['recipient'] = $recipient;

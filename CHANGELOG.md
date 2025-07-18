@@ -84,3 +84,7 @@ SHQ23-4872 PHP8.4 and Magento 2.4.8 compatibility
 SHQ23-5319 Add return types and fix copyright and ensure php 8.4 compatibility
 
 
+## 20.5.2 (2025-07-18)
+SHQ23-5452 Remove invalid argument from placeOrder
+
+

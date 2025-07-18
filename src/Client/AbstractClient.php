@@ -18,10 +18,11 @@ use ShipperHQ\GraphQL\Request\AbstractHeaders;
 
 abstract class AbstractClient
 {
-    protected static function getQueryStr($query) {
+    protected static function getQueryStr($query)
+    {
         // Must map __DIR__ to a local var AND use full path or else we get odd results with xdebug
         $dir = __DIR__;
-        return include($dir . "/../Queries/$query.php");
+        return include $dir . "/../Queries/$query.php";
     }
 
     /**
