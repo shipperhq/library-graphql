@@ -11,6 +11,7 @@
 
 namespace ShipperHQ\GraphQL\Helpers;
 
+use ReflectionException;
 use ShipperHQ\GraphQL\Exception\SerializerException;
 use ShipperHQ\GraphQL\Helpers\Serializer\ExtJsonMapper;
 
@@ -26,9 +27,10 @@ class Serializer
      * @param $fromObject
      * @param int $jsonOptions
      * @return false|string
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
-    public static function serialize($fromObject, int $jsonOptions) {
+    public static function serialize($fromObject, int $jsonOptions)
+    {
         $mappedObject = self::getPropertyTree($fromObject);
 
         return !empty($mappedObject)
@@ -40,9 +42,10 @@ class Serializer
      * @param string $jsonData
      * @param string $typeName
      * @return object
-     * @throws \JsonMapper_Exception
+     * @throws \JsonMapper_Exception|ReflectionException
      */
-    public static function deserialize(string $jsonData, string $typeName) {
+    public static function deserialize(string $jsonData, string $typeName)
+    {
         if (!static::$jsonMapper) {
             static::$jsonMapper = new ExtJsonMapper();
             static::$jsonMapper->bStrictNullTypes = false;
@@ -80,9 +83,10 @@ class Serializer
     /**
      * @param string $className
      * @return \ReflectionClass
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
-    private static function getReflectionClass($className) {
+    private static function getReflectionClass($className)
+    {
         return static::$cache[$className]['reflectionClass'] ?? (
             static::$cache[$className]['reflectionClass'] = new \ReflectionClass($className)
         );
@@ -91,9 +95,10 @@ class Serializer
     /**
      * @param $className
      * @return \ReflectionProperty[]
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
-    private static function getPropertiesForClass($className) {
+    private static function getPropertiesForClass($className)
+    {
         return static::$cache[$className]['properties'] ?? (
             static::$cache[$className]['properties'] = static::getReflectionClass($className)->getProperties()
         );
@@ -103,7 +108,8 @@ class Serializer
      * @param \ReflectionProperty $property
      * @return bool|string
      */
-    private static function getDocBlockForProperty(\ReflectionProperty $property) {
+    private static function getDocBlockForProperty(\ReflectionProperty $property)
+    {
         return $property->getDocComment();
     }
 
@@ -111,7 +117,8 @@ class Serializer
      * @param \ReflectionProperty $property
      * @return bool|string
      */
-    private static function getJsonSerializeAsForProperty(\ReflectionProperty $property) {
+    private static function getJsonSerializeAsForProperty(\ReflectionProperty $property)
+    {
         $matches = [];
         $doc = static::getDocBlockForProperty($property);
 
@@ -126,14 +133,15 @@ class Serializer
      * @param \ReflectionProperty $property
      * @return string
      */
-    private static function getJsonSerializeNameForProperty(\ReflectionProperty $property) {
+    private static function getJsonSerializeNameForProperty(\ReflectionProperty $property)
+    {
         return static::getJsonSerializeAsForProperty($property) ?: $property->getName();
     }
 
     /**
      * @param string $className
      * @return array
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     private static function getPropertiesMap(string $className)
     {
@@ -155,7 +163,7 @@ class Serializer
     /**
      * @param string $className
      * @return array
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     private static function getReversePropertiesMap(string $className)
     {
@@ -188,7 +196,7 @@ class Serializer
     /**
      * @param $fromObject
      * @return array
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     private static function getPropertyTree($fromObject)
     {
@@ -197,22 +205,25 @@ class Serializer
         $mappedObject = [];
 
         foreach ($properties as $propOrigName => $propMappedName) {
-            $method = 'get' . ucwords($propOrigName);
-            if (method_exists($fromObject, $method)) {
-                $val = $fromObject->{$method}();
+            $getter = 'get' . ucwords($propOrigName);
+            $isser = 'is' . ucwords($propOrigName);
+            if (method_exists($fromObject, $getter) || method_exists($fromObject, $isser)) {
+                $accessor = method_exists($fromObject, $getter) ? $getter : $isser;
+                $val = $fromObject->{$accessor}();
                 if (is_array($val)) {
                     foreach ($val as $k => $subVal) {
                         $mappedObject[$propMappedName][$k] = is_object($subVal)
                             ? static::getPropertyTree($subVal)
                             : $subVal;
                     }
-                } else if (is_object($val)) {
+                } elseif (is_object($val)) {
                     $mappedObject[$propMappedName] = static::getPropertyTree($val);
                 } else {
                     $mappedObject[$propMappedName] = $val;
                 }
             }
         }
+
         return $mappedObject;
     }
 }

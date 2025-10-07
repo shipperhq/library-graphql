@@ -28,7 +28,6 @@ class GraphQLClient extends AbstractClient
      * @param String $auth_code
      * @param $endpoint
      * @param $timeout
-     * @param SecureHeaders $headers
      * @return array
      * @throws \ReflectionException
      */
@@ -65,7 +64,6 @@ class GraphQLClient extends AbstractClient
     }
 
     /**
-     * @param RMSRatingInfo $ratingInfo
      * @param $endpoint
      * @param $timeout
      * @param SecureHeaders $headers

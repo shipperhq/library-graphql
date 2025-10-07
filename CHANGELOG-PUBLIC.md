@@ -88,3 +88,7 @@ SHQ23-5319 Add return types and fix copyright and ensure php 8.4 compatibility
 SHQ23-5452 Remove invalid argument from placeOrder
 
 
+## 20.5.3 (2025-10-07)
+SHQ23-6185 Fix getting and setting of fixedPrice, fixedWeight and freeShipping on RMSItem
+
+

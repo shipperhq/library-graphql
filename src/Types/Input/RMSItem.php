@@ -142,13 +142,13 @@ class RMSItem
      * @param bool $freeShipping
      * @param bool $fixedPrice
      * @param bool $fixedWeight
-     * @param float $basePrice
-     * @param float $taxInclBasePrice
-     * @param float $discountPercent
-     * @param float $discountedBasePrice
-     * @param float $discountedStorePrice
-     * @param float $discountedTaxInclBasePrice
-     * @param float $discountedTaxInclStorePrice
+     * @param float|null $basePrice
+     * @param float|null $taxInclBasePrice
+     * @param float|null $discountPercent
+     * @param float|null $discountedBasePrice
+     * @param float|null $discountedStorePrice
+     * @param float|null $discountedTaxInclBasePrice
+     * @param float|null $discountedTaxInclStorePrice
      * @param RMSAttribute[] $attributes
      * @param RMSItem[] $items
      * @throws SerializerException
@@ -324,8 +324,7 @@ class RMSItem
 
         if (in_array($type, self::AVAILABLE_ITEM_TYPES)) {
             $this->type = $type;
-        }
-        else {
+        } else {
             throw new SerializerException("Item type is not valid");
         }
 
