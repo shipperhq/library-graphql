@@ -92,3 +92,7 @@ SHQ23-5452 Remove invalid argument from placeOrder
 SHQ23-6185 Fix getting and setting of fixedPrice, fixedWeight and freeShipping on RMSItem
 
 
+## 20.5.4 (2025-11-06)
+INFRA-1328 - Removed incorrect case-sensitive version of file
+
+
