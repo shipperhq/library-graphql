@@ -13,7 +13,7 @@ namespace ShipperHQ\GraphQL\Request;
 
 /**
  * Class EmptyHeaders
- * @package ShipperHQ\GraphQL\Request
+ * @package ShipperHQ\GraphQL
  */
 class EmptyHeaders extends AbstractHeaders
 {

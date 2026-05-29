@@ -96,3 +96,7 @@ SHQ23-6185 Fix getting and setting of fixedPrice, fixedWeight and freeShipping o
 INFRA-1328 - Removed incorrect case-sensitive version of file
 
 
+## 20.5.5 (2026-05-29)
+ENG26-26 Code tidy up
+
+

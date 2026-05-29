@@ -16,7 +16,7 @@ use ShipperHQ\GraphQL\Response\Data\PlaceOrderData;
 
 /**
  * Class PlaceOrder
- * @package ShipperHQ\GraphQL\Response
+ * @package ShipperHQ\GraphQL
  */
 class PlaceOrder implements ResponseInterface
 {
